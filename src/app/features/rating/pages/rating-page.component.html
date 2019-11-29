@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Rating</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <div class="container">
+    <div class="row mb-3">
+      <div class="col">
+        Топ:
+        <select name="top" (change)="topLimitChanged($event)">
+          <option [value]="topType" *ngFor="let topType of TOP_TYPES">
+            <ng-container *ngIf="topType!== 0">{{topType}}</ng-container>
+            <ng-container *ngIf="topType === 0">Все</ng-container>
+          </option>
+        </select>
+      </div>
+      <div class="col">
+        Сортировка:
+        <select name="order" (change)="orderByChanged($event)">
+          <option [value]="orederType.value" *ngFor="let orederType of ORDER_TYPES">{{orederType.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">Участников: {{participants$.value.length}}</div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-3 col-md-4 mb-3"
+           *ngFor="let participant of participants$.value">
+        <app-participant-card
+                [participant]="participant"
+                [showFullInfo]="showParticipantsInfo">
+        </app-participant-card>
+      </div>
+    </div>
+  </div>
+</ion-content>

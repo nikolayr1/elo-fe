@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Compare</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="participants">
+    <div class="container">
+      <span *ngIf="loading$.value">Загрузка участников...</span>
+      <div class="row" *ngIf="participants$.value">
+        <div class="col-6">
+          <app-participant-card
+                  (imageClickedEmitter)="battle(1)"
+                  *ngIf="participants$.value.participant1"
+                  [participant]="participants$.value.participant1">
+          </app-participant-card>
+        </div>
+        <div class="col-6">
+          <app-participant-card
+                  (imageClickedEmitter)="battle(0)"
+                  *ngIf="participants$.value.participant2"
+                  [participant]="participants$.value.participant2">
+          </app-participant-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
