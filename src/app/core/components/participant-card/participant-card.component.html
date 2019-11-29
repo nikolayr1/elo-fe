@@ -1,0 +1,21 @@
+<div class="participant card">
+  <img
+    class="participant__photo card-img-top cursor-pointer"
+    [src]="participant.photo"
+    [alt]="participant.name+' '+participant.surname"
+    (click)="imageClicked()"
+  >
+  <div
+    class="card-body participant__info"
+    [class.participant__info_visible]="showInfo"
+    [class.p-0]="!showInfo"
+  >
+    <p class="participant__name card-title">{{participant.name}} {{participant.surname}}</p>
+    <p class="participant__rating card-text">Рейтинг: {{participant.score}}</p>
+    <p class="participant__rating card-text"><a [href]="participant.url" target="_blank">Ссылка на профиль</a></p>
+  </div>
+  <div class="card-footer cursor-pointer" (click)="toggleInfo()">
+    <small class="text-muted" *ngIf="!showInfo">Показать информацию</small>
+    <small class="text-muted" *ngIf="showInfo">Скрыть информацию</small>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<form [formGroup]="participantAddForm">
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <label>Имя</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="name"
+          placeholder="Введите имя учасника"
+        >
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <label>Фамилия</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="surname"
+          placeholder="Введите фамилию учасника"
+        >
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Ссылка на фото</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="photo"
+      placeholder="Введите ссылку на фото учасника"
+    >
+  </div>
+  <div class="form-group">
+    <label>Ссылка на профиль с социальной сети</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="url"
+      placeholder="Введите ссылку на профиль с социальной сети учасника"
+    >
+  </div>
+  <button class="btn btn-success" type="submit" (click)="submit()">Добавить учасника</button>
+</form>
